@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vāstrāmāya</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1580128635141-d6f75e2f5b9e') no-repeat center center/cover;
+      color: #fff;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.6);
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+    .section {
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.5);
+      margin: 1rem;
+      border-radius: 10px;
+    }
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .product img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+    }
+    button, a.button {
+      padding: 0.5rem 1rem;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vāstrāmāya</h1>
+    <p>Traditional Elegance for All Ages</p>
+    <button onclick="signInWithGoogle()">Login with Gmail</button>
+  </header>
+
+  <div class="section">
+    <h2>Men's Collection</h2>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1600180758890-6f55b285cf34" alt="Men's Kurta"/>
+      <p>Royal Kurta – ₹799</p>
+      <a class="button" href="https://wa.me/919409379636?text=I want to buy Royal Kurta for ₹799 from Vāstrāmāya.">Order Now</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Women's Collection – Clothing</h2>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542060748-10c28b62716c" alt="Saree"/>
+      <p>Elegant Saree – ₹1199</p>
+      <a class="button" href="https://wa.me/919409379636?text=I want to buy Elegant Saree for ₹1199 from Vāstrāmāya.">Order Now</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Women's Collection – Jewelry</h2>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1613312411295-61c3a9b0b837" alt="Jewelry"/>
+      <p>Gold Plated Necklace – ₹599</p>
+      <a class="button" href="https://wa.me/919409379636?text=I want to buy Gold Plated Necklace for ₹599 from Vāstrāmāya.">Order Now</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Children's Collection</h2>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1596464716121-bb4946c92b2b" alt="Kid's Outfit"/>
+      <p>Traditional Kid Set – ₹499</p>
+      <a class="button" href="https://wa.me/919409379636?text=I want to buy Traditional Kid Set for ₹499 from Vāstrāmāya.">Order Now</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>📞 24/7 Customer Support | Non-returnable & Non-refundable</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/vastramayatraditions">Instagram</a>
+      <a href="https://www.facebook.com/share/16eXrSCxMW/">Facebook</a>
+      <a href="https://youtube.com/@vastramaya-traditions">YouTube</a>
+    </div>
+    <p><strong>Connect With Us:</strong> vastramaya traditions | 📱 9409379636</p>
+  </footer>
+
+  <!-- Gmail Login Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3Y8cX-Your-Demo-Key",
+      authDomain: "vastramaya-demo.firebaseapp.com",
+      projectId: "vastramaya-demo",
+      storageBucket: "vastramaya-demo.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abc"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    window.signInWithGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then(result => {
+          alert("Welcome " + result.user.displayName);
+        })
+        .catch(error => {
+          alert("Login failed");
+        });
+    };
+  </script>
+</body>
+</html>
